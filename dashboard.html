@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Weather Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 40px; }
+        .container { display: flex; gap: 20px; justify-content: center; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; }
+        h2 { color: #333; }
+        .temp { font-size: 2em; color: #007bff; font-weight: bold; }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;">City Weather Dashboard</h1>
+<div class="container">
+    <!-- Fresno -->
+    <div class="card">
+        <h2>Fresno, CA</h2>
+        <div class="temp" th:text="${fresno.properties.periods[0].temperature} + '°' + ${fresno.properties.periods[0].temperatureUnit}">--</div>
+        <p th:text="${fresno.properties.periods[0].shortForecast}">Loading...</p>
+    </div>
+    <!-- New York -->
+    <div class="card">
+        <h2>New York, NY</h2>
+        <div class="temp" th:text="${ny.properties.periods[0].temperature} + '°' + ${ny.properties.periods[0].temperatureUnit}">--</div>
+        <p th:text="${ny.properties.periods[0].shortForecast}">Loading...</p>
+    </div>
+</div>
+</body>
+</html>
